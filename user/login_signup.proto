@@ -18,9 +18,9 @@ message CreateRequest {
 }
 
 message FindUserRequest {
-  optional string username = 1;
-  optional string email = 2;
-  string password = 3;
+  optional string username = 1 [json_name  = "username"];
+  optional string email = 2 [json_name = "email"];
+  string password = 3 [json_name ="password"];
 }
 
 message UserResponse {
