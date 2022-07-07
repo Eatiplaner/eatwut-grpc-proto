@@ -10,11 +10,9 @@ service LoginSignupService {
 }
 
 message CreateRequest {
-  string username = 1 [json_name = "username"];
-  string email = 2 [json_name = "email"];
-  string first_name = 3 [json_name = "first_name"];
-  string last_name = 4 [json_name = "last_name"];
-  string password = 5 [json_name = "password"];
+  string email = 1 [json_name = "email"];
+  string full_name = 2 [json_name = "full_name"];
+  string password = 3 [json_name = "password"];
 }
 
 message FindUserRequest {
@@ -27,6 +25,5 @@ message UserResponse {
   uint32 id = 1;
   string username = 2;
   string email = 3;
-  string first_name = 4;
-  string last_name = 5;
+  string full_name = 4;
 }
