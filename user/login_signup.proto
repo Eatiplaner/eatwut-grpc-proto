@@ -21,9 +21,31 @@ message FindUserRequest {
   string password = 3 [json_name ="password"];
 }
 
+message UserAddress {
+  uint32 id = 1;
+  string district = 2;
+  string city = 3;
+  string lat = 4;
+  string lng = 5;
+  string type = 6;
+}
+
+message UserProvider {
+  uint32 id = 1;
+  string url = 2;
+  string type = 3;
+  bool display_on_profile = 4;
+}
+
 message UserResponse {
   uint32 id = 1;
   string username = 2;
   string email = 3;
   string full_name = 4;
+  string bio = 5;
+  string phone = 6;
+  string dob = 7;
+  repeated UserAddress addresses = 8;
+  repeated UserProvider providers = 9;
+  repeated string  prefer_categories = 10;
 }
