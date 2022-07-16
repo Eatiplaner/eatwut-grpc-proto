@@ -45,7 +45,8 @@ message UserResponse {
   string bio = 5;
   string phone = 6;
   string dob = 7;
-  repeated UserAddress addresses = 8;
-  repeated UserProvider providers = 9;
-  repeated string prefer_categories = 10;
+  string last_login = 8;
+  repeated UserAddress addresses = 9;
+  repeated UserProvider providers = 10;
+  repeated string prefer_categories = 11;
 }

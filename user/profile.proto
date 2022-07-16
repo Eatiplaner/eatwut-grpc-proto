@@ -29,9 +29,10 @@ message UpdateProfileData {
   string bio = 4 [json_name = "bio"];
   string phone = 5 [json_name = "phone"];
   string dob = 6 [json_name = "dob"];
-  repeated UserAddressData addresses = 7 [json_name = "addresses"];
-  repeated UserProviderData providers = 8 [json_name = "providers"];
-  repeated string  prefer_categories = 9 [json_name = "prefer_categories"];
+  string last_login = 7 [json_name = "last_login"];
+  repeated UserAddressData addresses = 8 [json_name = "addresses"];
+  repeated UserProviderData providers = 9 [json_name = "providers"];
+  repeated string  prefer_categories = 10 [json_name = "prefer_categories"];
 }
 
 message UpdateProfileRequest {
@@ -63,7 +64,8 @@ message UpdateProfileResponse {
   string bio = 5;
   string phone = 6;
   string dob = 7;
-  repeated ProfileUserAddress addresses = 8;
-  repeated ProfileUserProvider providers = 9;
-  repeated string prefer_categories = 10;
+  string last_login = 8;
+  repeated ProfileUserAddress addresses = 9;
+  repeated ProfileUserProvider providers = 10;
+  repeated string prefer_categories = 11;
 }
