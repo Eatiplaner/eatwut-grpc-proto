@@ -26,10 +26,18 @@ message UpdateProfileData {
   string username = 1 [json_name = "username"];
   string email = 2 [json_name = "email"];
   string full_name = 3 [json_name = "full_name"];
-  string bio = 4 [json_name = "bio"];
-  string phone = 5 [json_name = "phone"];
-  string dob = 6 [json_name = "dob"];
-  string last_login = 7 [json_name = "last_login"];
+  oneof bio_oneof {
+    string  bio = 4 [json_name = "bio"];
+  };
+  oneof phone_oneof {
+    string phone = 5 [json_name = "phone"];
+  };
+  oneof dob_oneof {
+    string dob = 6 [json_name = "dob"];
+  };
+  oneof last_login_oneof {
+    string last_login = 7 [json_name = "last_login"];
+  };
   repeated UserAddressData addresses = 8 [json_name = "addresses"];
   repeated UserProviderData providers = 9 [json_name = "providers"];
   repeated string  prefer_categories = 10 [json_name = "prefer_categories"];
@@ -61,10 +69,18 @@ message UpdateProfileResponse {
   string username = 2;
   string email = 3;
   string full_name = 4;
-  string bio = 5;
-  string phone = 6;
-  string dob = 7;
-  string last_login = 8;
+  oneof bio_oneof {
+    string bio = 5;
+  };
+  oneof phone_oneof {
+    string phone = 6;
+  };
+  oneof dob_oneof {
+    string dob = 7;
+  };
+  oneof last_login_oneof {
+    string last_login = 8;
+  };
   repeated ProfileUserAddress addresses = 9;
   repeated ProfileUserProvider providers = 10;
   repeated string prefer_categories = 11;
