@@ -47,5 +47,5 @@ message UserResponse {
   string dob = 7;
   repeated UserAddress addresses = 8;
   repeated UserProvider providers = 9;
-  repeated string  prefer_categories = 10;
+  repeated string prefer_categories = 10;
 }

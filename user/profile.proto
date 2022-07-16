@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package user;
+
+option go_package="./app/grpc/rpc_pb";
+
+service ProfileService {
+  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {}
+}
+
+message UserAddressData {
+  string district = 1 [json_name = "district"];
+  string city = 2 [json_name = "city"];
+  string lat = 3 [json_name = "lat"];
+  string lng = 4 [json_name = "lng"];
+  string type = 5 [json_name = "type"];
+}
+
+message UserProviderData {
+  string url = 1 [json_name = "url"];
+  string type = 2 [json_name = "type"];
+  bool display_on_profile = 3 [json_name = "display_on_profile"];
+}
+
+message UpdateProfileData {
+  string username = 1 [json_name = "username"];
+  string email = 2 [json_name = "email"];
+  string full_name = 3 [json_name = "full_name"];
+  string bio = 4 [json_name = "bio"];
+  string phone = 5 [json_name = "phone"];
+  string dob = 6 [json_name = "dob"];
+  repeated UserAddressData addresses = 7 [json_name = "addresses"];
+  repeated UserProviderData providers = 8 [json_name = "providers"];
+  repeated string  prefer_categories = 9 [json_name = "prefer_categories"];
+}
+
+message UpdateProfileRequest {
+  string id = 1 [json_name = "id"];
+  UpdateProfileData data = 2 [json_name = "data"];
+}
+
+message ProfileUserAddress {
+  uint32 id = 1;
+  string district = 2;
+  string city = 3;
+  string lat = 4;
+  string lng = 5;
+  string type = 6;
+}
+
+message ProfileUserProvider {
+  uint32 id = 1;
+  string url = 2;
+  string type = 3;
+  bool display_on_profile = 4;
+}
+
+message UpdateProfileResponse {
+  uint32 id = 1;
+  string username = 2;
+  string email = 3;
+  string full_name = 4;
+  string bio = 5;
+  string phone = 6;
+  string dob = 7;
+  repeated ProfileUserAddress addresses = 8;
+  repeated ProfileUserProvider providers = 9;
+  repeated string prefer_categories = 10;
+}
