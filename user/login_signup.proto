@@ -44,9 +44,10 @@ message UserResponse {
   string full_name = 4;
   string bio = 5;
   string phone = 6;
-  string dob = 7;
-  string last_login = 8;
-  repeated UserAddress addresses = 9;
-  repeated UserProvider providers = 10;
-  repeated string prefer_categories = 11;
+  string gender = 7;
+  string dob = 8;
+  string last_login = 9;
+  repeated UserAddress addresses = 10;
+  repeated UserProvider providers = 11;
+  repeated string prefer_categories = 12;
 }

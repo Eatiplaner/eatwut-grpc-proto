@@ -32,19 +32,19 @@ message UpdateProfileData {
   oneof phone_oneof {
     string phone = 5 [json_name = "phone"];
   };
+  string gender = 6 [json_name = "gender"];
   oneof dob_oneof {
-    string dob = 6 [json_name = "dob"];
+    string dob = 7 [json_name = "dob"];
   };
   oneof last_login_oneof {
-    string last_login = 7 [json_name = "last_login"];
+    string last_login = 8 [json_name = "last_login"];
   };
-  repeated UserAddressData addresses = 8 [json_name = "addresses"];
-  repeated UserProviderData providers = 9 [json_name = "providers"];
-  repeated string  prefer_categories = 10 [json_name = "prefer_categories"];
+  repeated UserAddressData addresses = 9 [json_name = "addresses"];
+  repeated UserProviderData providers = 10 [json_name = "providers"];
+  repeated string  prefer_categories = 11 [json_name = "prefer_categories"];
 }
 
 message UpdateProfileRequest {
-  string id = 1 [json_name = "id"];
   UpdateProfileData data = 2 [json_name = "data"];
 }
 
@@ -75,13 +75,14 @@ message UpdateProfileResponse {
   oneof phone_oneof {
     string phone = 6;
   };
+  string gender = 7;
   oneof dob_oneof {
-    string dob = 7;
+    string dob = 8;
   };
   oneof last_login_oneof {
-    string last_login = 8;
+    string last_login = 9;
   };
-  repeated ProfileUserAddress addresses = 9;
-  repeated ProfileUserProvider providers = 10;
-  repeated string prefer_categories = 11;
+  repeated ProfileUserAddress addresses = 10;
+  repeated ProfileUserProvider providers = 11;
+  repeated string prefer_categories = 12;
 }
