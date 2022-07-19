@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package plan;
+
+import "google/protobuf/empty.proto";
+
+service Category {
+  rpc GetCategories(google.protobuf.Empty) returns (GetCategoriesResp) { }
+}
+
+message SubCategory {
+  uint32 id = 1;
+  string name = 2;
+}
+
+message ParentCategory {
+  uint32 id = 1;
+  string name = 2;
+  repeated SubCategory subcategories = 3;
+}
+
+message GetCategoriesResp {
+  repeated ParentCategory data = 1;
+}
