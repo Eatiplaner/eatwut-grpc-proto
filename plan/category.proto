@@ -4,7 +4,7 @@ package plan;
 
 import "google/protobuf/empty.proto";
 
-service Category {
+service CategoryService {
   rpc GetCategories(google.protobuf.Empty) returns (GetCategoriesResp) { }
 }
 
