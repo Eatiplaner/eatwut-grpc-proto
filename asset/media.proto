@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package asset;
+
+service MediaService {
+  rpc GeneratePresignedUrl(GenerateUrlReq) returns (GenerateUrlResp) { }
+  rpc GetMedia(GetMediaReq) returns (GetMediaResp) { }
+  rpc DeleteMedia(AcknowledgeReq) returns (AcknowledgeResp) { }
+  rpc AcknowledgeUploaded(AcknowledgeReq) returns (AcknowledgeResp) { }
+}
+
+message GenerateUrlReq {
+  uint32 resource_id = 1;
+  string resource_type = 2;
+  string media_type = 3;
+  string file_name = 4;
+}
+
+message GetMediaReq {
+  uint32 resource_id = 1;
+  string resource_type = 2;
+  string media_type = 3;
+}
+
+message DeleteMediaReq {
+  string key = 1;
+}
+
+message AcknowledgeReq {
+  string key = 1;
+}
+
+message GenerateUrlResp {
+  string presigned_url = 1;
+  string key = 2;
+}
+
+message AcknowledgeResp {
+  bool success = 1;
+}
+
+message GetMediaResp {
+  uint32 id = 1;
+  uint32 resource_id = 2;
+  string resource_type = 3;
+  string media_type = 4;
+  string s3_key = 5;
+  string access_url = 6;
+  string status = 7;
+}
