@@ -39,7 +39,7 @@ message AcknowledgeResp {
   bool success = 1;
 }
 
-message GetMediaResp {
+message MediaTracking {
   uint32 id = 1;
   uint32 resource_id = 2;
   string resource_type = 3;
@@ -47,4 +47,9 @@ message GetMediaResp {
   string s3_key = 5;
   string access_url = 6;
   string status = 7;
+}
+
+
+message GetMediaResp {
+  repeated MediaTracking data = 1;
 }
