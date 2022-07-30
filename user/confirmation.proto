@@ -2,13 +2,10 @@ syntax = "proto3";
 
 package user;
 
-import "google/protobuf/empty.proto";
-
 option go_package="./app/grpc/rpc_pb";
 
 service ConfirmationService {
   rpc FindUserIdByEmail(FindUserIdByEmailReq) returns (FindUserIdByEmailResp) {}
-  rpc ActiveUser(google.protobuf.Empty) returns (google.protobuf.Empty) {}
   rpc CheckActivation(CheckActivationReq) returns (CheckActivationResp) {}
 }
 
