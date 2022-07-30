@@ -7,9 +7,9 @@ import "google/protobuf/empty.proto";
 option go_package="./app/grpc/rpc_pb";
 
 service ActivationService {
-  rpc ActiveUser(ActiveUserReq) returns (google.protobuf.Empty) {}
+  rpc ActivateUser(ActivateUserReq) returns (google.protobuf.Empty) {}
 }
 
-message ActiveUserReq {
+message ActivateUserReq {
   string token = 1;
 }
