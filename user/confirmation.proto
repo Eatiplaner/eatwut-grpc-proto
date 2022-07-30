@@ -17,11 +17,11 @@ message FindUserIdByEmailReq {
 }
 
 message FindUserIdByEmailResp {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message CheckActivationReq {
-  uint32 user_id = 1;
+  uint64 user_id = 1;
 }
 
 message CheckActivationResp {

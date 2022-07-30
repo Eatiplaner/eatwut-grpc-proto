@@ -10,7 +10,7 @@ service MediaService {
 }
 
 message GenerateUrlReq {
-  uint32 resource_id = 1;
+  uint64 resource_id = 1;
   string resource_type = 2;
   string media_type = 3;
   string file_name = 4;
@@ -18,7 +18,7 @@ message GenerateUrlReq {
 }
 
 message GetMediaReq {
-  uint32 resource_id = 1;
+  uint64 resource_id = 1;
   string resource_type = 2;
   string media_type = 3;
 }
@@ -41,8 +41,8 @@ message AcknowledgeResp {
 }
 
 message MediaTracking {
-  uint32 id = 1;
-  uint32 resource_id = 2;
+  uint64 id = 1;
+  uint64 resource_id = 2;
   string resource_type = 3;
   string media_type = 4;
   string s3_key = 5;

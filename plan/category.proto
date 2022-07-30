@@ -9,12 +9,12 @@ service CategoryService {
 }
 
 message SubCategory {
-  uint32 id = 1;
+  uint64 id = 1;
   string name = 2;
 }
 
 message ParentCategory {
-  uint32 id = 1;
+  uint64 id = 1;
   string name = 2;
   repeated SubCategory subcategories = 3;
 }

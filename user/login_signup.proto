@@ -22,7 +22,7 @@ message FindUserRequest {
 }
 
 message UserAddress {
-  uint32 id = 1;
+  uint64 id = 1;
   string district = 2;
   string city = 3;
   string lat = 4;
@@ -31,14 +31,14 @@ message UserAddress {
 }
 
 message UserProvider {
-  uint32 id = 1;
+  uint64 id = 1;
   string url = 2;
   string type = 3;
   bool display_on_profile = 4;
 }
 
 message UserResponse {
-  uint32 id = 1;
+  uint64 id = 1;
   string username = 2;
   string email = 3;
   string full_name = 4;
