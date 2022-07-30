@@ -21,7 +21,7 @@ message FindUserIdByEmailResp {
 }
 
 message CheckActivationReq {
-  uint64 user_id = 1;
+  uint64 user_id = 1 [json_name = "user_id"];
 }
 
 message CheckActivationResp {
