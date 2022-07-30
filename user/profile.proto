@@ -89,4 +89,5 @@ message UpdateProfileResponse {
   repeated ProfileUserAddress addresses = 10;
   repeated ProfileUserProvider providers = 11;
   repeated string prefer_categories = 12;
+  bool is_active = 13;
 }
