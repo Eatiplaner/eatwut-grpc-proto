@@ -2,10 +2,13 @@ syntax = "proto3";
 
 package user;
 
+import "google/protobuf/empty.proto";
+
 option go_package="./app/grpc/rpc_pb";
 
 service ProfileService {
   rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {}
+  rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty) {}
 }
 
 message UserAddressData {
@@ -90,4 +93,8 @@ message UpdateProfileResponse {
   repeated ProfileUserProvider providers = 11;
   repeated string prefer_categories = 12;
   bool is_active = 13;
+}
+
+message ChangePasswordRequest {
+  string new_password = 1 [json_name = "new_password"];
 }
