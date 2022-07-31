@@ -7,17 +7,18 @@ import "google/protobuf/empty.proto";
 option go_package="./app/grpc/rpc_pb";
 
 service ConfirmationService {
-  rpc FindUserIdByEmail(FindUserIdByEmailReq) returns (FindUserIdByEmailResp) {}
+  rpc FindUserInfoByEmail(FindUserByEmailReq) returns (FindUserByEmailResp) {}
   rpc CheckActivation(CheckActivationReq) returns (CheckActivationResp) {}
   rpc ActiveUser(ActiveUserReq) returns (google.protobuf.Empty) {}
 }
 
-message FindUserIdByEmailReq {
+message FindUserByEmailReq {
   string email = 1 [json_name = "email"];
 }
 
-message FindUserIdByEmailResp {
+message FindUserByEmailResp {
   uint64 id = 1;
+  string full_name = 2;
 }
 
 message CheckActivationReq {
