@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package plan;
+
+import "google/protobuf/timestamp.proto";
+
+service EatPlanService {
+  rpc CreateEatPlan(CreateEatPlanReq) returns (CreateEatPlanResp) { }
+}
+
+message EatPlanCategoryResp {
+  uint64 id = 1;
+  string name = 2;
+}
+
+message CreateEatPlanReq {
+  string name = 1 [json_name = "name"];
+  string description = 2 [json_name = "description"];
+  string duration_metric = 3 [json_name = "duration_metric"];
+  uint32 duration_value = 4 [json_name = "duration_value"];
+  uint32 meals_per_day = 5 [json_name = "meals_per_day"];
+  uint64 user_id = 6 [json_name = "user_id"];
+  repeated uint64 category_ids = 7 [json_name ="category_ids"];
+}
+
+message EatPlan {
+  uint64 id = 1;
+  string name = 2;
+  string description = 3;
+  string status = 4;
+  string duration_metric = 5;
+  uint32 duration_value = 6;
+  uint32 meals_per_day = 7;
+  uint64 user_id = 8;
+  repeated EatPlanCategoryResp categories = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
+}
+
+message CreateEatPlanResp {
+  EatPlan data = 1;
+}
