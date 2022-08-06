@@ -51,4 +51,5 @@ message UserResponse {
   repeated UserProvider providers = 11;
   repeated string prefer_categories = 12;
   bool is_active = 13;
+  bool is_kol = 14;
 }
