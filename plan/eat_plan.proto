@@ -2,10 +2,13 @@ syntax = "proto3";
 
 package plan;
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 service EatPlanService {
   rpc CreateEatPlan(CreateEatPlanReq) returns (CreateEatPlanResp) { }
+  rpc PublishEatPlan(ChangeStatusEatPlanReq) returns (google.protobuf.Empty) { }
+  rpc DraftEatPlan(ChangeStatusEatPlanReq) returns (google.protobuf.Empty) { }
 }
 
 message EatPlanCategoryResp {
@@ -21,6 +24,10 @@ message CreateEatPlanReq {
   uint32 meals_per_day = 5 [json_name = "meals_per_day"];
   uint64 user_id = 6 [json_name = "user_id"];
   repeated uint64 category_ids = 7 [json_name ="category_ids"];
+}
+
+message ChangeStatusEatPlanReq {
+  uint64 id = 1;
 }
 
 message EatPlan {
