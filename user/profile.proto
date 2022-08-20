@@ -8,7 +8,7 @@ option go_package="./app/grpc/rpc_pb";
 
 service ProfileService {
   rpc UpdateProfile(UpdateProfileRequest) returns (UserProfileResponse) {}
-  rpc GetProfileByToken(GetProfileByTokenReq) returns (UserProfileResponse) {}
+  rpc GetProfileByToken(google.protobuf.Empty) returns (UserProfileResponse) {}
   rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty) {}
 }
 
