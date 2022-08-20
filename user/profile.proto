@@ -46,10 +46,6 @@ message UpdateProfileData {
   repeated UserAddressData addresses = 9 [json_name = "addresses"];
   repeated UserProviderData providers = 10 [json_name = "providers"];
   repeated string  prefer_categories = 11 [json_name = "prefer_categories"];
-
-  oneof is_active_oneof {
-    bool is_active = 12 [json_name = "is_active"];
-  };
 }
 
 message UpdateProfileRequest {
