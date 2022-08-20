@@ -7,7 +7,8 @@ import "google/protobuf/empty.proto";
 option go_package="./app/grpc/rpc_pb";
 
 service ProfileService {
-  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {}
+  rpc UpdateProfile(UpdateProfileRequest) returns (UserProfileResponse) {}
+  rpc GetProfileByToken(GetProfileByTokenReq) returns (UserProfileResponse) {}
   rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty) {}
 }
 
@@ -55,6 +56,10 @@ message UpdateProfileRequest {
   UpdateProfileData data = 2 [json_name = "data"];
 }
 
+message GetProfileByTokenReq {
+  string token = 1;
+}
+
 message ProfileUserAddress {
   uint64 id = 1;
   string district = 2;
@@ -71,7 +76,7 @@ message ProfileUserProvider {
   bool display_on_profile = 4;
 }
 
-message UpdateProfileResponse {
+message UserProfileResponse {
   uint64 id = 1;
   string username = 2;
   string email = 3;
