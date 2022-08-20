@@ -1,4 +1,3 @@
-
 syntax = "proto3";
 
 package auth;
@@ -8,12 +7,8 @@ import "google/protobuf/empty.proto";
 option go_package="./app/grpc/rpc_pb";
 
 service ActivationService {
-  rpc ActivateUser(ActivateUserReq) returns (google.protobuf.Empty) {}
+  rpc ActivateUser(google.protobuf.Empty) returns (google.protobuf.Empty) {}
   rpc RegenerateConfirmationByEmail(RegenerateConfirmationByEmailReq) returns (google.protobuf.Empty) {}
-}
-
-message ActivateUserReq {
-  string token = 1;
 }
 
 message RegenerateConfirmationByEmailReq {
