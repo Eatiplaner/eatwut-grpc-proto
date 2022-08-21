@@ -7,6 +7,7 @@ import "google/protobuf/empty.proto";
 option go_package="./app/grpc/rpc_pb";
 
 service JwtService {
+  rpc ValidActivationToken(google.protobuf.Empty) returns (ValidResponse) {}
   rpc ValidToken(google.protobuf.Empty) returns (ValidResponse) {}
 }
 
