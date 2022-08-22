@@ -10,6 +10,7 @@ service ProfileService {
   rpc UpdateProfile(UpdateProfileRequest) returns (UserProfileResponse) {}
   rpc GetProfileByToken(google.protobuf.Empty) returns (UserProfileResponse) {}
   rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty) {}
+  rpc RecordLoginTime(google.protobuf.Empty) returns (google.protobuf.Empty) {}
 }
 
 message UserAddressData {
@@ -40,12 +41,9 @@ message UpdateProfileData {
   oneof dob_oneof {
     string dob = 7 [json_name = "dob"];
   };
-  oneof last_login_oneof {
-    string last_login = 8 [json_name = "last_login"];
-  };
-  repeated UserAddressData addresses = 9 [json_name = "addresses"];
-  repeated UserProviderData providers = 10 [json_name = "providers"];
-  repeated string  prefer_categories = 11 [json_name = "prefer_categories"];
+  repeated UserAddressData addresses = 8 [json_name = "addresses"];
+  repeated UserProviderData providers = 9 [json_name = "providers"];
+  repeated string  prefer_categories = 10 [json_name = "prefer_categories"];
 }
 
 message UpdateProfileRequest {
